@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./assets/style.css" />
+
+    <title>04 Web APIs: Code Quiz</title>
+</head>
+
+<body>
+    <header>
+    <!-- High score and Timer counting down will be shown on top left and right corners respectively -->
+    <section id = "score_keeper" style="display: none">
+        <input type="button" value="View High Scores" onclick="view_high_scores()"></br>
+        Score: <var id="score"> </var>
+    </section>
+
+    <section id= "countDown" style="display: none">
+        Time Remaining: <span id="timer"></span>
+    </section>
+
+    </header>
+
+
+    <!-- First page  will be shown by here -->
+    <container>
+    <div id="mainContainer" class="none">
+        <h1>Coding Quiz Challenge</h1>
+        <p></p>
+        <p>Try to answer the following code-related questions within the time</p> 
+        <p> limit. Keep in mind that incorrect answers will penalize your score/time</p>
+        <p>by ten seconds!</p>
+        <br>
+        <button id="startBtn">Start Quiz</button>
+    </div>
+    </container>
+
+        <!-- Call the options of the answers -->
+        <div id="testContainer" style="display: none"> 
+            <h2 id="testHead"></h2>
+                <ul>
+                    <div id="options">
+                        <button id="optionA"></button>
+                    </div>
+                    <div>
+                        <button id="optionB"></button>
+                    </div>
+                    <div>
+                        <button id="optionC"></button>
+                    </div>
+                    <div>
+                        <button id="optionD"></button>
+                    </div>
+                </ul>
+            </div>
+</body>
+
+<!-- Results and the high score will be shown -->
+<section id="AnswerResponse">
+</section>
+
+<div id= "game_over" style="display: none">
+    <h2> Game Over</h2>
+    Your Score was: <var id="end_score"> </var>
+    </br>
+    Initials: <input type="text"  value="initials" id="initials">
+    </br>
+    <input type="button" value="submit" id="submit_intials" onclick="submit_score()">
+</div>
+
+<div id="high_scores_page" style="display: none" >
+    <h2> High Scores </h2>
+    <div id="high_scores"></div>
+        <input type="button" value="Go Back" id="go_back" onclick="go_home()">
+        <input type="button" id="Clear Highscores" value ="clear" onclick="clear_hs()">
+    </div>
+
+    <script src="./assets/script.js"></script>
+
+</html> 
