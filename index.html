@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
 
     <title>04 Web APIs: Code Quiz</title>
 </head>
 
 <body>
     <header>
-    <!-- High score and Timer counting down will be shown on top left and right corners respectively -->
+    <!-- Display the HighScore on the left and timer on the right side -->
     <section id = "score_keeper" style="display: none">
         <input type="button" value="View High Scores" onclick="view_high_scores()"></br>
         Score: <var id="score"> </var>
@@ -24,7 +24,7 @@
     </header>
 
 
-    <!-- First page  will be shown by here -->
+    <!-- The introduction page  -->
     <container>
     <div id="mainContainer" class="none">
         <h1>Coding Quiz Challenge</h1>
@@ -37,7 +37,7 @@
     </div>
     </container>
 
-        <!-- Call the options of the answers -->
+        <!-- The menu of multiple choices will be shown -->
         <div id="testContainer" style="display: none"> 
             <h2 id="testHead"></h2>
                 <ul>
@@ -57,7 +57,7 @@
             </div>
 </body>
 
-<!-- Results and the high score will be shown -->
+<!-- coding showing the highscore -->
 <section id="AnswerResponse">
 </section>
 
@@ -77,6 +77,6 @@
         <input type="button" id="Clear Highscores" value ="clear" onclick="clear_hs()">
     </div>
 
-    <script src="./script.js"></script>
+    <script src="./assets/script.js"></script>
 
 </html> 
