@@ -25,38 +25,38 @@
 
 var testArray = [
 {
-    question: "Commonly used data types DO NOT include:",
+    question: "What's HTML stands for?",
     imageSrc: "",
-    option: ["A) strings", "B) booleans", "C) alerts", "D) numbers"],
+    option: ["A) High Market Lounge", "B) Hypertext Markup Language", "C) Historical monarchical logic", "D) High Total Mass Limits"],
     rightRespond: 1
 }, 
 {
-    question: "The condition in as if / else statements is enclosed within _________.",
+    question: "How to initialize an existing directory as a Git repository.",
     imageSrc: "",
-    option: ["A) quotes", "B) curly brackets", "C) parentheses", "D) square brackets"],
+    option: ["A) git branche", "B) git clone [url]", "C) git init", "D) git log"],
     rightRespond: 2
 },
 {
-    question: "Arrays in JavaScript can be used to store _________.",
+    question: "What's CSS stands for?.",
     imageSrc: "",
-    option: ["A) numbers and setings", "B) other arrays", "C) booleans", "D) all of the above"],
+    option: ["A) Colour Sensitive Sensor", "B) Completed Script Skills", "C) Cascading Style Sheets", "D) Coding Style Sheets"],
     rightRespond: 2
 }, 
 {
-    question: "String values must be enclosed within __________ when beig assigned to variables.",
+    question: "What defines the HTML Headings?",
     imageSrc: "",
-    option: ["A) commas", "B) curly brackets", "C) quotes", "D) parentheses"],
-    rightRespond: 3
+    option: ["A) <p>", "B) <a>", "C) <p>", "D) <img>"],
+    rightRespond: 2
 },
 {
-    question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-    option: ["A) JavaScript", "B) terminal / bash", "C) for loops", "D) console.log"],
+    question: "Where in between does the JavaScript is inserted in HTML?",
+    option: ["A) <script> and </script>", "B) <html> and </head>", "C) <html> and <body>", "D) <Body> and <html>"],
     rightRespond: 0
 }];
 
-//COUNTDOWN TIMER FUNCTION: set countdown timer and interval. Set time-related valiables.
+//  Function DownCounter.
 
-//change the seconds variable every second.
+// call the function each 1 second
 var countdownInter = setInterval(setcountDown, 1000);
 
 //function that changes the time var
@@ -66,13 +66,12 @@ function setcountDown() {
         if(clock<= 0) {
         end_quiz();
         clock = 0;    
-        // clearInterval(countdownTimerInterval);
-        //alert user and stop quiz
+
         }
         document.getElementById("timer").innerHTML = clock;
     }
 
-// START EVENT LISTENER: When user clicks Start button, start the countdown timer and quiz questions. Add an event listener to each button.
+// Add funcionality to the button.
 startBtn.addEventListener("click", function() {
     testContainer.style.display = "block";
     mainContainer.style.display ="none";
@@ -84,7 +83,7 @@ startBtn.addEventListener("click", function() {
     startTime= true;
 });
 
-// QUESTIONS FUNCTION: display questions and multiple-choice answers
+// Display the questions
 
 function setQuizQuestions() {
         testHead.textContent = testArray[i].question;
@@ -94,31 +93,26 @@ function setQuizQuestions() {
         optionD.textContent = testArray[i].option[3]; 
         };
 
-// When user answers a question: then user is presented with another question
-
-// Store user answer choices. Clear elements and update score count.
-
-// Change to next question
+// Add funcionality to the answer's buttons
 optionA.addEventListener('click', function(event) {
         event.stopPropagation();
         rightRespond = testArray[i].rightRespond;
         console.log("rightRespond " + rightRespond);
-        // check answer
+        // verify all answers
         if (0 === rightRespond) { 
-            // display message to user for 1  second stating if the answer is correct or incorrect
+            // Show correct or incorrect message by 1 second
             document.getElementById("AnswerResponse").innerHTML = "Correct! Nailed it!";
             setTimeout(function() {
             document.getElementById("AnswerResponse").innerHTML = "";
                 },
                 1000
             );
-            // when user answers a question correctly, increase the score
+            // increase the score in case the player makes the right choice
             score++;    
-            // display updated score progress
             document.getElementById("score").innerHTML = score;
         } else {
             remainTime -= 5;
-            // Answer inccorrect, 5 seconds are subtracted from the clock
+            // decrease the clock in 5 seconds in case the player makes the wrong decision
             document.getElementById("AnswerResponse").innerHTML = "Incorrect! Better luck in the next one!";
             setTimeout(function() {
                 document.getElementById("AnswerResponse").innerHTML = "";
@@ -224,7 +218,7 @@ optionA.addEventListener('click', function(event) {
     };
 });
 
-        //end quiz
+        // the quiz is finilized here
         function end_quiz(){
             document.getElementById("game_over").style.display= "block";
             document.getElementById("testContainer").style.display="none";
@@ -234,18 +228,17 @@ optionA.addEventListener('click', function(event) {
             document.getElementById("end_score").innerHTML= score;
             }
 
-        //submit score and initals
+        // the score is submited
             function submit_score() {
              high_scores.push(document.getElementById("initials").value + " " + score);
              view_high_scores();
+            
             }
+            
 
-        // localStorage.setItem("score",JSON.stringify(AnswerResponse));
-        // localStorage.setItem("initials", JSON.stringify(initials));
-        
         function view_high_scores(){
         
-        // changing the screen output
+        // change de screen e show the result of the quiz
             document.getElementById("testContainer").style.display="none";
             document.getElementById("game_over").style.display= "none";
             document.getElementById("high_scores_page").style.display="block";
@@ -256,6 +249,9 @@ optionA.addEventListener('click', function(event) {
             }
             document.getElementById("high_scores").innerHTML= output;                
              clear_up();
+
+            localStorage.setItem("high_score", high_scores);
+
         }
 
         // refresh the site to the home container page
@@ -265,13 +261,12 @@ optionA.addEventListener('click', function(event) {
                 clear_up();
         }
         
-        // clear the highscore
+        // reset the score
         function clear_hs(){
             high_scores = [];
-            // high_scores.splice(0, high_scores.length);
           }
         
-        // refresh the site 
+        // reset the webpage
         function clear_up(){
         
         clock=60;
